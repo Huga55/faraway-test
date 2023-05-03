@@ -1,0 +1,47 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+        "moduleResolution": "Node",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "baseUrl": "./src",
+        "paths": {
+            "@atoms/*": ["components/atoms/*"],
+            "@molecules/*": ["components/molecules/*"],
+            "@organisms/*": ["components/organisms/*"],
+            "@pages/*": ["components/pages/*"],
+            "@templates/*": ["components/templates/*"],
+            "@routes/*": ["routes/*"],
+            "@store/*": ["store/*"],
+            "@store": ["store/index.ts"],
+            "@constants/*": ["constants/*"],
+            "@hooks/*": ["hooks/*"],
+            "@services/*": ["services/*"],
+            "@utils/*": ["utils/*"],
+            "@validation/*": ["utils/validation/*"],
+            "@schemas/*": ["schemas/*"],
+            "@assets/*": ["assets/*"],
+            "@images/*": ["assets/images/*"],
+            "@svg/*": ["assets/svg/*"],
+            "@context/*": ["context/*"],
+            "@HOC/*": ["HOC/*"],
+            "@styles/*": ["styles/*"],
+            "@config/*": ["config/*"]
+        }
+    },
+    "include": ["src"],
+    "references": [{ "path": "./tsconfig.node.json" }],
+    "paths": {
+        "*": ["**/*.d.ts"]
+    }
+}
