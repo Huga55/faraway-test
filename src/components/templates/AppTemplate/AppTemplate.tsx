@@ -2,21 +2,24 @@ import { memo } from "react";
 
 import { Outlet } from "react-router-dom";
 
+import Footer from "@organisms/Footer";
 import Header from "@organisms/Header";
+
+import Container from "@atoms/Container/Container";
 
 import styles from "./AppTemplate.module.scss";
 
 const AppTemplate = () => (
     <div className={styles.container}>
-        <div className={styles.right}>
-            <header className={styles.header}>
-                <Header />
-            </header>
+        <Header />
 
-            <main className={styles.main}>
+        <main className={styles.main}>
+            <Container>
                 <Outlet />
-            </main>
-        </div>
+            </Container>
+        </main>
+
+        <Footer />
     </div>
 );
 
