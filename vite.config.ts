@@ -14,6 +14,13 @@ export default defineConfig({
     build: {
         outDir: "./build/",
     },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@import "@/styles/variables.scss";`,
+            },
+        },
+    },
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "src"),
