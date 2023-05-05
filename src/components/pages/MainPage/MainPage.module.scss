@@ -1,0 +1,16 @@
+.wrapper {
+    padding: 20px;
+    height: 100%;
+
+    .title {
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 410px);
+    gap: 20px;
+    justify-content: center;
+}
