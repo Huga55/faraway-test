@@ -1,0 +1,15 @@
+.fields {
+    display: flex;
+    margin-bottom: 30px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    width: calc(50% - 5px);
+}

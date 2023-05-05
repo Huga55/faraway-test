@@ -1,0 +1,13 @@
+.input {
+    width: 100%;
+
+    input {
+        border-bottom: 1px solid var(--color-border-primary);
+        color: var(--color-text-primary);
+    }
+
+    label {
+        color: var(--color-text-primary);
+        opacity: 0.7;
+    }
+}
