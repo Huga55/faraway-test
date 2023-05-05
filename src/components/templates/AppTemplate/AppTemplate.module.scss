@@ -1,13 +1,18 @@
-.container {
+.wrapper {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background: url("/src/assets/images/start-bg.jpg") no-repeat center;
+    min-height: 100vh;
+    background: var(--color-bg-main), url("/src/assets/images/start-bg.jpg") no-repeat center;
     background-size: cover;
+}
+
+.container {
+    height: 100%;
 }
 
 .main {
     padding: 40px 0;
     width: 100%;
-    flex: 1;
+    flex: 1 1 0;
 }

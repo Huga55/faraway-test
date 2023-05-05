@@ -10,11 +10,11 @@ import Container from "@atoms/Container/Container";
 import styles from "./AppTemplate.module.scss";
 
 const AppTemplate = () => (
-    <div className={styles.container}>
+    <div className={styles.wrapper}>
         <Header />
 
         <main className={styles.main}>
-            <Container>
+            <Container className={styles.container}>
                 <Outlet />
             </Container>
         </main>
