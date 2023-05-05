@@ -1,0 +1,29 @@
+.wrapper {
+    .title {
+        margin-bottom: 20px;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img {
+    height: 300px;
+}
+
+.list {
+    display: flex;
+    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit {
+    width: 200px;
+}
+
+.back {
+    margin-bottom: 20px;
+}
