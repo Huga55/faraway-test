@@ -1,17 +1,13 @@
 :root {
-    --color-primary: black;
-    --color-secondary: white;
+    --color-primary: #000000;
+    --color-secondary: #1d1e1f;
 
-    --color-text-primary: white;
-    --color-text-secondary: black;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #000000;
 
-    --color-border-primary: white;
-}
+    --color-border-primary: #ffffff;
 
-html,
-body,
-#root {
-    height: 100%;
+    --color-bg-main: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
 }
 
 body {
