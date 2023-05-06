@@ -10,12 +10,19 @@ import Modal from "@molecules/Modal";
 import Button from "@atoms/Button";
 import Typography from "@atoms/Typography";
 
+import useMedia from "@hooks/useMedia";
+
+import { IEditedCharacterData } from "@schemas/characters";
+
 import airplane from "@images/airplane.png";
 
 import styles from "./CharacterInfoPage.module.scss";
 
 const CharacterInfoPage = () => {
-    const [openEditModal, setOpenEditModal] = useState(true);
+    const { isMobile } = useMedia();
+
+    const [openEditModal, setOpenEditModal] = useState(false);
+    const [currentCharacter, setCurrentCharacter] = useState(characterCardMock[0]);
 
     const {
         name,
@@ -26,20 +33,28 @@ const CharacterInfoPage = () => {
         eye_color,
         birth_year,
         gender,
-    } = characterCardMock[0];
+    } = currentCharacter;
 
     const onCloseModalHandler = useCallback(() => setOpenEditModal(false), []);
     const onOpenModalHandler = () => setOpenEditModal(true);
 
-    const onApplyEditedHandler = useCallback(() => {
-        onCloseModalHandler();
-    }, [onCloseModalHandler]);
+    const onApplyEditedHandler = useCallback(
+        (data: IEditedCharacterData) => {
+            onCloseModalHandler();
+
+            setCurrentCharacter({
+                ...currentCharacter,
+                ...data,
+            });
+        },
+        [onCloseModalHandler, currentCharacter],
+    );
 
     return (
         <div className={styles.wrapper}>
             <Modal onClose={onCloseModalHandler} open={openEditModal} title="Edit character">
                 <EditCharacterForm
-                    data={characterCardMock[0]}
+                    data={currentCharacter}
                     onCancel={onCloseModalHandler}
                     onApply={onApplyEditedHandler}
                 />
@@ -47,7 +62,7 @@ const CharacterInfoPage = () => {
 
             <GoBack className={styles.back} />
 
-            <Typography className={styles.title} variant="h3">
+            <Typography className={styles.title} variant={isMobile ? "h4" : "h3"}>
                 {name}
             </Typography>
 
@@ -83,15 +98,13 @@ const CharacterInfoPage = () => {
                         </LineValue>
                     </div>
 
-                    <div className={styles.btns}>
-                        <Button
-                            onClick={onOpenModalHandler}
-                            className={styles.edit}
-                            variant="contained"
-                        >
-                            Edit
-                        </Button>
-                    </div>
+                    <Button
+                        onClick={onOpenModalHandler}
+                        className={styles.edit}
+                        variant="contained"
+                    >
+                        Edit
+                    </Button>
                 </div>
 
                 <img src={airplane} alt="Yoda" className={styles.img} />

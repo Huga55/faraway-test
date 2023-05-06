@@ -27,3 +27,21 @@
 .back {
     margin-bottom: 20px;
 }
+
+@media screen and (max-width: $media-mobile) {
+    .wrapper {
+        position: relative;
+    }
+
+    .img {
+        position: absolute;
+        right: 0;
+        top: -30px;
+        height: 80px;
+    }
+
+    .edit,
+    .left {
+        width: 100%;
+    }
+}

@@ -12,3 +12,13 @@
 .logo {
     height: 100px;
 }
+
+@media screen and (max-width: $media-mobile) {
+    .container {
+        height: 100px;
+    }
+
+    .logo {
+        height: 60px;
+    }
+}
