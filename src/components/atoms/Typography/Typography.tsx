@@ -1,7 +1,13 @@
+import clsx from "clsx";
+
 import { Typography as TypographyMUI, TypographyProps } from "@mui/material";
 
-const Typography: FCC<TypographyProps> = ({ children, ...otherProps }) => (
-    <TypographyMUI {...otherProps}>{children}</TypographyMUI>
+import styles from "./Typography.module.scss";
+
+const Typography: FCC<TypographyProps> = ({ children, className, ...otherProps }) => (
+    <TypographyMUI {...otherProps} className={clsx(styles.typography, className)}>
+        {children}
+    </TypographyMUI>
 );
 
 export default Typography;
