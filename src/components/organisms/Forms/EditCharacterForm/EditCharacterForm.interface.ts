@@ -1,7 +1,9 @@
-import { ICharacter } from "@schemas/characters";
+import { IEditedCharacterData } from "@schemas/characters";
 
 export interface IEditCharacterForm {
     onCancel(): void;
-    onApply(): void;
-    data: ICharacter;
+    onApply(data: IEditedCharacterData): void;
+    data: IEditedCharacterData;
 }
+
+export type IEditCharacterFormFields = IEditedCharacterData;

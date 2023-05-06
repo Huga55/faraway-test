@@ -1,19 +1,40 @@
 import { FC, memo } from "react";
 
-import Input from "@molecules/Input";
+import { useForm } from "react-hook-form";
+
+import InputControlled from "@molecules/InputControlled/InputControlled";
+import RadiosControlled from "@molecules/RadiosControlled/RadiosControlled";
 
 import Button from "@atoms/Button";
 
-import { IEditCharacterForm } from "./EditCharacterForm.interface";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { editCharacterSchema } from "@utils/validation/schemas/character";
+
+import { editCharactersGenders } from "./EditCharacterForm.constants";
+import { IEditCharacterForm, IEditCharacterFormFields } from "./EditCharacterForm.interface";
 import styles from "./EditCharacterForm.module.scss";
 
-const EditCharacterForm: FC<IEditCharacterForm> = ({ onApply, onCancel }) => {
-    return (
-        <form>
-            <div className={styles.fields}>
-                <Input className={styles.field} label="Name" variant="standard" name="name" />
+const EditCharacterForm: FC<IEditCharacterForm> = ({ data, onApply, onCancel }) => {
+    const { control, handleSubmit } = useForm<IEditCharacterFormFields>({
+        defaultValues: data,
+        resolver: yupResolver(editCharacterSchema),
+    });
 
-                <Input
+    const onSubmitHandler = (data: IEditCharacterFormFields) => onApply?.(data);
+
+    return (
+        <form className={styles.form} onSubmit={handleSubmit(onSubmitHandler)}>
+            <div className={styles.fields}>
+                <InputControlled
+                    control={control}
+                    className={styles.field}
+                    label="Name"
+                    variant="standard"
+                    name="name"
+                />
+
+                <InputControlled
+                    control={control}
                     className={styles.field}
                     type="number"
                     label="Height"
@@ -21,7 +42,8 @@ const EditCharacterForm: FC<IEditCharacterForm> = ({ onApply, onCancel }) => {
                     name="height"
                 />
 
-                <Input
+                <InputControlled
+                    control={control}
                     className={styles.field}
                     type="number"
                     label="Mass"
@@ -29,35 +51,45 @@ const EditCharacterForm: FC<IEditCharacterForm> = ({ onApply, onCancel }) => {
                     name="mass"
                 />
 
-                <Input
+                <InputControlled
+                    control={control}
                     className={styles.field}
                     label="Hair color"
                     variant="standard"
-                    name="hairColor"
+                    name="hair_color"
                 />
 
-                <Input
+                <InputControlled
+                    control={control}
                     className={styles.field}
                     label="Skin Color"
                     variant="standard"
-                    name="skinColor"
+                    name="skin_color"
                 />
 
-                <Input
+                <InputControlled
+                    control={control}
                     className={styles.field}
                     label="Eyye color"
                     variant="standard"
-                    name="eyeColor"
+                    name="eye_color"
                 />
 
-                <Input
+                <InputControlled
+                    control={control}
                     className={styles.field}
                     label="Birth Year"
                     variant="standard"
-                    name="birthYear"
+                    name="birth_year"
                 />
 
-                <Input className={styles.field} label="Gender" variant="standard" name="gender" />
+                <RadiosControlled
+                    label="Gender"
+                    control={control}
+                    className={styles.field}
+                    name="gender"
+                    elems={editCharactersGenders}
+                />
             </div>
 
             <div className={styles.btns}>

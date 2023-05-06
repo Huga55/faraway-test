@@ -41,7 +41,7 @@ export default defineConfig({
             "@styles": path.resolve(__dirname, baseUrl, "styles"),
             "@utils": path.resolve(__dirname, baseUrl, "utils"),
             "@services": path.resolve(__dirname, baseUrl, "services"),
-            "@config": path.resolve(__dirname, baseUrl, "config"),
+            "@hooks": path.resolve(__dirname, baseUrl, "hooks"),
         },
     },
 

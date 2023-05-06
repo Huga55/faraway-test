@@ -3,7 +3,7 @@ export const EGender = {
     FEMALE: "female",
 } as const;
 
-export interface ICharacter {
+export interface IEditedCharacterData {
     name: string;
     height: string;
     mass: string;
@@ -12,6 +12,9 @@ export interface ICharacter {
     eye_color: string;
     birth_year: string;
     gender: ValueOf<typeof EGender>;
+}
+
+export interface ICharacter extends IEditedCharacterData {
     homeworld: string;
     films: string[];
     species: string[];
