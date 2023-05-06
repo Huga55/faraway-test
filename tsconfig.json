@@ -28,13 +28,9 @@
             "@hooks/*": ["hooks/*"],
             "@services/*": ["services/*"],
             "@utils/*": ["utils/*"],
-            "@validation/*": ["utils/validation/*"],
             "@schemas/*": ["schemas/*"],
             "@assets/*": ["assets/*"],
             "@images/*": ["assets/images/*"],
-            "@svg/*": ["assets/svg/*"],
-            "@context/*": ["context/*"],
-            "@HOC/*": ["HOC/*"],
             "@styles/*": ["styles/*"],
             "@config/*": ["config/*"]
         }

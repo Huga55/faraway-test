@@ -1,3 +1,5 @@
+import { IManageList } from "@schemas/helpers";
+
 export const EGender = {
     MALE: "male",
     FEMALE: "female",
@@ -24,3 +26,5 @@ export interface ICharacter extends IEditedCharacterData {
     edited: string;
     url: string;
 }
+
+export type IListCharacters = IManageList<ICharacter>;
