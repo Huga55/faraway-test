@@ -1,0 +1,10 @@
+.pagination {
+    div {
+        color: var(--color-text-primary);
+    }
+
+    :global(button:not(.Mui-selected)) {
+        border-color: var(--color-border-primary);
+        color: var(--color-text-primary);
+    }
+}
