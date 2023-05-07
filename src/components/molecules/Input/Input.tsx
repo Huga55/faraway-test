@@ -7,9 +7,9 @@ import { TextField, Typography } from "@mui/material";
 import { IInput } from "./Input.interface";
 import styles from "./Input.module.scss";
 
-const Input: FC<IInput> = ({ className, error, ...otherProps }) => {
+const Input: FC<IInput> = ({ className, error, labelClassName, ...otherProps }) => {
     return (
-        <label className={styles.label}>
+        <label className={clsx(styles.label, labelClassName)}>
             <TextField {...otherProps} error={!!error} className={clsx(styles.input, className)} />
 
             {error && (
