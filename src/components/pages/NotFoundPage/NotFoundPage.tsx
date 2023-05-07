@@ -14,7 +14,7 @@ const NotFoundPage = () => {
             <Typography variant="h3">Not found</Typography>
 
             <Link to={ROUTES.MAIN}>
-                <Typography variant="button">Go Main page</Typography>
+                <Typography variant="button">Go To Main page</Typography>
             </Link>
         </div>
     );

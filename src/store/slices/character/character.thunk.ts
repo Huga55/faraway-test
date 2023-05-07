@@ -1,4 +1,5 @@
 import Characters from "@services/endpoints/characters/Characters";
+import { IGetAllCharactersDto } from "@services/endpoints/characters/dto/get-all-characters-dto";
 
 import { AppThunk } from "@store/index";
 
@@ -9,11 +10,11 @@ import {
     setIsCharactersLoading,
 } from "./character.slice";
 
-export const getCharacters = (page: number): AppThunk => async (dispatch) => {
+export const getCharacters = (dto: IGetAllCharactersDto): AppThunk => async (dispatch) => {
     dispatch(setIsCharactersLoading(true));
 
     try {
-        const characters = await Characters.getAllCharacters(page);
+        const characters = await Characters.getAllCharacters(dto);
 
         dispatch(setCharacters(characters.data));
     } catch (e) {

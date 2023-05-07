@@ -5,11 +5,13 @@ import { paths } from "@services/paths";
 
 import { ICharacter, IListCharacters } from "@schemas/characters";
 
+import { IGetAllCharactersDto } from "./dto/get-all-characters-dto";
+
 const url = paths.characters;
 
 class CharactersAPI {
-    getAllCharacters(page: number): AxiosPromise<IListCharacters> {
-        return Request.get(`${url}/`, { params: { page } });
+    getAllCharacters(dto: IGetAllCharactersDto): AxiosPromise<IListCharacters> {
+        return Request.get(`${url}/`, { params: dto });
     }
 
     getCharacterById(id: string): AxiosPromise<ICharacter> {
