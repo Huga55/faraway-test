@@ -10,16 +10,14 @@ import logo from "@images/logo.png";
 
 import styles from "./Header.module.scss";
 
-const Header = () => {
-    return (
-        <header className={styles.header}>
-            <Container className={styles.container}>
-                <Link to={ROUTES.MAIN}>
-                    <img className={styles.logo} src={logo} alt="logo" />
-                </Link>
-            </Container>
-        </header>
-    );
-};
+const Header = () => (
+    <header className={styles.header}>
+        <Container className={styles.container}>
+            <Link to={ROUTES.MAIN}>
+                <img className={styles.logo} src={logo} alt="logo" />
+            </Link>
+        </Container>
+    </header>
+);
 
 export default memo(Header);

@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, memo, useCallback } from "react";
+import { ChangeEvent, FocusEvent, memo } from "react";
 
 import { Controller, FieldValues } from "react-hook-form";
 
@@ -14,16 +14,13 @@ const InputControlled = <T extends FieldValues>({
     shouldUnregister,
     ...inputProps
 }: IInputControlled<T>) => {
-    const onBlurHandler = useCallback(
-        (
-            e: FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>,
-            controllerOnBLur: () => void,
-        ) => {
-            onBlur?.(e);
-            controllerOnBLur();
-        },
-        [onBlur],
-    );
+    const onBlurHandler = (
+        e: FocusEvent<HTMLInputElement | HTMLTextAreaElement, Element>,
+        controllerOnBLur: () => void,
+    ) => {
+        onBlur?.(e);
+        controllerOnBLur();
+    };
 
     const onChangeHandler = (
         e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,

@@ -87,7 +87,7 @@ const MainPage = () => {
 
     const { count, results: characters } = charactersList || {};
 
-    const pagesAmount = count && Math.ceil(count / charactersPerPage);
+    const pagesAmount = count ? Math.ceil(count / charactersPerPage) : 1;
 
     return (
         <div className={styles.wrapper}>
@@ -105,13 +105,21 @@ const MainPage = () => {
                 variant="standard"
             />
 
-            <div className={styles.cards}>
-                {characters?.map((card) => (
-                    <CharacterCard key={card.name} data={card} onGetInfo={getCharacterInfo} />
-                ))}
-            </div>
+            {!!characters?.length && (
+                <div className={styles.cards}>
+                    {characters.map((card) => (
+                        <CharacterCard key={card.name} data={card} onGetInfo={getCharacterInfo} />
+                    ))}
+                </div>
+            )}
 
-            {!!pagesAmount && (
+            {!characters?.length && nameParam && (
+                <Typography variant={isMobile ? "h5" : "h4"}>
+                    Not found with your filters
+                </Typography>
+            )}
+
+            {pagesAmount > 1 && (
                 <div className={styles.pagination}>
                     <Pagination
                         {...(isMobile && { siblingCount: 0 })}

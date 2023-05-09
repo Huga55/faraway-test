@@ -73,7 +73,7 @@ const CharacterInfoPage = () => {
         return () => {
             dispatch(clearCharacterInfo());
         };
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className={styles.wrapper}>
